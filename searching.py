@@ -5,6 +5,8 @@ from fileinput import filename
 
 from setuptools.dist import seque
 import json
+import matplotlib.pyplot as plt
+import time
 # get current working directory path
 # cwd_path = os.getcwd()
 
@@ -53,12 +55,12 @@ def linear_search(sequence , search_number):
         if num == search_number:
             indexes.append(i)
             count += 1
-        return {
+    return {
             "positions": indexes,
             "count": count
         }
 
-def pattern_search(seq, pattern):
+# def pattern_search(seq, pattern):
     # pattern_size = len(pattern)
     # indices = []
     # left_idx = 0
@@ -76,19 +78,24 @@ def pattern_search(seq, pattern):
     # return indices
 
 
-def binary_search(seq, number):
-    left, right = {0, len(seq) -1}
+def binary_search(indexes, search_number):
+    left, right = {0, len(indexes) -1}
     while left <= right:
         middle = (right + left) // 2
 
-        if number < seq[middle]:
+        if search_number < indexes[middle]:
             right = middle -1
-        elif number > seq[middle]:
+        elif search_number > indexes[middle]:
             left = middle + 1
         else:
             return middle
     return
 
+
+sizes = [100, 500, 1000, 5000, 10000]
+binko = []
+sekvenko = []
+for
 
 
 
@@ -97,7 +104,7 @@ def main():
 
     sequence = read_data(path, key = "unordered_numbers")
 
-    result = linear_search(sequence, search_number)
+    indexes = linear_search(path, key = "ordered_numbers")
 
 
     # results = linear_search(seq, number= 0)
